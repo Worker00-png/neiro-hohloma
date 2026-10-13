@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Нейро-хохлома: генератор орнаментов в стилистике хохломской росписи">
+<title>Нейро-хохлома — генератор хохломских орнаментов</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="in"><div class="logo">Нейро-хохлома</div>
+<nav><a href="#why">Зачем</a><a href="#how">Как это работает</a><a href="#gen">Генератор</a><a href="#who">Для кого</a><a class="btn" href="#gen" style="padding:10px 20px;font-size:15px">Попробовать</a></nav></div></header>
+
+<main>
+<section class="hero"><div class="in">
+<div class="tx"><div class="eb">ИИ для народных промыслов</div>
+<h1>Новая хохлома — за минуты, а не за часы</h1>
+<p class="lead">Сервис на основе нейросети StyleGAN2 создаёт уникальные орнаменты в канонах хохломской росписи — для ткани, упаковки, интерьера и одежды. Без стоков и без зарубежных облаков.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px"><a class="btn" href="#gen">Создать орнамент</a><a class="btn o" href="#how">Как это работает</a></div>
+<div class="stats"><div><span class="num">5 000+</span><small>изображений в обучающей выборке</small></div><div><span class="num">3–5</span><small>паттернов в минуту</small></div><div><span class="num">SVG · PNG</span><small>форматы экспорта</small></div></div></div>
+<div class="im"><img src="assets/plate.jpg" alt="Хохломское блюдо с орнаментом, созданным по канону росписи" width="520" height="520"></div>
+</div></section>
+
+<section class="s alt" id="why"><div class="in"><div class="eb">Зачем это нужно</div><h2>Три проблемы дизайнера — одно решение</h2>
+<div class="grid">
+<div class="card"><h3>Долго и трудоёмко</h3><p>Традиционные узоры приходится перерисовывать вручную. Здесь десятки вариантов появляются вместо часов эскизирования.</p></div>
+<div class="card"><h3>Неоригинально</h3><p>Стоковые изображения повторяются и часто нарушают лицензии. Сгенерированный орнамент уникален и юридически чист.</p></div>
+<div class="card"><h3>Недоступные сервисы</h3><p>Зарубежные генераторы недоступны в РФ и не знают канонов промысла. «Нейро-хохлома» работает локально и учится только на хохломе.</p></div>
+</div></div></section>
+
+<section class="s" id="how"><div class="in"><div class="eb">Как это работает</div><h2>Четыре шага до готового узора</h2>
+<div class="grid">
+<div class="card"><span class="step">01</span><h3>Выберите стиль</h3><p>Чёрная или золотая хохлома: «травка», «ягодка», «кудрина».</p></div>
+<div class="card"><span class="step">02</span><h3>Настройте</h3><p>Плотность узора и палитра под ваше изделие.</p></div>
+<div class="card"><span class="step">03</span><h3>Сгенерируйте</h3><p>Нейросеть предлагает варианты, вы выбираете лучший.</p></div>
+<div class="card"><span class="step">04</span><h3>Экспортируйте</h3><p>Файл для цифровой печати и лазерной гравировки либо API.</p></div>
+</div></div></section>
+
+<section class="s alt" id="gen"><div class="in"><div class="eb">Генератор</div><h2>Создайте свой орнамент</h2>
+<div class="gen">
+<div id="out" role="img" aria-label="Сгенерированный хохломской орнамент"></div>
+<div class="ctl">
+<label for="cp">Композиция</label>
+<select id="cp"><option value="rose">Розетка (блюдо, подушка)</option><option value="branch">Ветка в рамке</option><option value="repeat">Рапорт для ткани</option><option value="scatter">Россыпь</option></select>
+<label for="st">Фон</label>
+<select id="st"><option value="black">Чёрный</option><option value="gold">Золотой</option><option value="red">Алый</option><option value="cream">Кремовый</option></select>
+<label for="dn">Плотность узора: <span id="dv">5</span></label>
+<input id="dn" type="range" min="1" max="10" value="5">
+<label for="ls">Пышность веток: <span id="lv">5</span></label>
+<input id="ls" type="range" min="1" max="10" value="5">
+<div class="lb" id="pl">Палитра</div>
+<div class="pals" role="group" aria-labelledby="pl">
+<button type="button" data-p="classic" aria-label="Классика" aria-pressed="true" style="background:linear-gradient(135deg,#d6a21c 50%,#b3151b 50%)"></button>
+<button type="button" data-p="scarlet" aria-label="Алая" aria-pressed="false" style="background:linear-gradient(135deg,#e3b53f 50%,#d8262c 50%)"></button>
+<button type="button" data-p="forest" aria-label="Лесная" aria-pressed="false" style="background:linear-gradient(135deg,#c9a227 50%,#237a4a 50%)"></button>
+<button type="button" data-p="amber" aria-label="Янтарная" aria-pressed="false" style="background:linear-gradient(135deg,#e0a526 50%,#d9531e 50%)"></button>
+<button type="button" data-p="berry" aria-label="Ягодная" aria-pressed="false" style="background:linear-gradient(135deg,#d6a21c 50%,#9c1f4a 50%)"></button>
+</div>
+<label class="ck"><input type="checkbox" id="sy" checked> Симметричные ветки</label>
+<div class="acts"><button class="btn" id="go" type="button">Сгенерировать</button><button class="btn o" id="rnd" type="button">Удивить меня</button><button class="btn o" id="dsvg" type="button">Скачать SVG</button><button class="btn o" id="dpng" type="button">Скачать PNG</button></div>
+<div class="var" id="var" aria-label="Последние варианты"></div>
+<p class="note">Код варианта: <b id="sd"></b></p>
+<p class="note" id="msg">Демо: узор строит алгоритм прямо в браузере. В полной версии орнаменты создаёт обученная нейросеть StyleGAN2.</p>
+</div></div></div></section>
+
+<section class="s" id="who"><div class="in"><div class="eb">Для кого</div><h2>Инструмент, а не замена мастера</h2>
+<div class="grid">
+<div class="card"><h3>Дизайнеры</h3><p>Быстрый выбор из аутентичных вариантов на этапе поиска решений.</p></div>
+<div class="card"><h3>Производители</h3><p>Ткани, упаковка, интерьер с национальной идентичностью и API для печати и гравировки.</p></div>
+<div class="card"><h3>Студенты и мастера</h3><p>Современный цифровой язык для традиции: промысел снова интересен молодёжи.</p></div>
+</div></div></section>
+
+<section class="cta"><div class="in"><h2>Верните промыслу место в современном дизайне</h2><a class="btn" href="#gen">Создать орнамент</a></div></section>
+</main>
+<footer><div class="in"><span class="logo" style="font-size:20px">Нейро-хохлома</span><span>Проект для стипендиального конкурса «Система»</span></div></footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
